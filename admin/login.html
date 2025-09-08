@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./js/jquery.js" type="text/javascript"></script>
+    <script src="./js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="./js/alert.js" type="text/javascript"></script>
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./css/alert.css" rel="stylesheet" />
+    <link href="./css/admin.css" rel="stylesheet" />
+    <title>ان بی ایکس - رهن و اجاره مسکن - خرید و فروش ملک ، آپارتمان، ویلا</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="./ico/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./ico/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./ico/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./ico/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./ico/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./ico/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./ico/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./ico/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./ico/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./ico/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./ico/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./ico/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="./ico/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body class="bg">
+    <form class="form-signin text-center" id="loginform">
+        <img class="mb-4" src="/img/logo.png" alt="">
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input name="email" type="user" id="inputEmail" class="form-control" placeholder="نام کاربری" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input name="password" type="password" id="inputPassword" class="form-control" placeholder="رمز ورود" required>
+        <div class="form-group  ">
+            <img class="captcha" id="imgcpatcha" src="/captcha" /><input class="form-control"
+                style="width: 140px;display: inline;" type="text" placeholder="کد امنیتی" name="captcha" required />
+        </div>
+        <span id="loginBTN" class="btn btn-lg btn-primary btn-block" style="margin: 5px;" type="submit">ورود</span>
+        <p class="mt-5 mb-3 text-muted">&copy; ImenCMS.com</p>
+    </form>
+    <script type="text/javascript">
+        function GetJsonFromForm(form) {
+            var ot = "";
+            $(form).find(':input').each(function () {
+                ot += ',"' + this.name + '":"' + this.value + '"';
+            });
+            //  $(form).find(':input[type=hidden]').each(function () {
+            //   ot += ',"' + this.name + '":"' + this.value + '"';
+            //  });
+            //return JSON.stringify("{" + ot.substring(1) + "}");
+            alert(ot);
+            return "{" + ot.substring(1) + "}";
+        }
+        function checkFormValue(form) {
+            var ot = true;
+            $(form).find(':input').each(function () {
+                if (this.value == null ||
+                    this.value == undefined ||
+                    this.value == '' ||
+                    this.value.length == 0) {
+                    ot = false;
+                }
+            });
+            
+            return ot;
+        }
+        $(document).ready(function () {
+            $("#loginBTN").click(function () {
+                if (!checkFormValue("#loginform")) {
+                    jAlert("مقادیر خواسته شده را وارد نمایید");
+                    return;
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "/admin/login",
+                    data: GetJsonFromForm("#loginform"),
+                    contentType: "application/json; charset=utf-8", // this
+                    dataType: "json",
+                    headers: {
+                        'Accept': 'application/json'
+                       // 'token': UserID
+                    },
+                    success: function (msg) {
+                        //jAlert("به ان بی ایکس خوش آمدید");
+                        document.location="home.html"
+                    },
+                    error: function (errormessage) {
+                        alert(JSON.stringify(errormessage));
+                        var d = JSON.parse(JSON.stringify(errormessage));
+                        //d.responseJSON.errors.msg
+                        jAlert(d.responseJSON.errors.msg);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
