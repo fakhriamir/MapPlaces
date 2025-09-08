@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<script src="./js/jquery.js" type="text/javascript"></script>
+	<!--<script src="./js/popper.min.js" type="text/javascript"></script>-->
+	<script src="./js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="./js/alert.min.js" type="text/javascript"></script>
+	<script src="./js/ol.js" type="text/javascript"></script>
+	<link href="./css/bootstrap.min.css" rel="stylesheet" />
+	<link href="./css/alert.min.css" rel="stylesheet" />
+	<link href="./css/ol.css" rel="stylesheet" />
+	<link href="./css/ind<%=mobile%>.min.css" rel="stylesheet" />
+	<title>ان بی ایکس - رهن و اجاره مسکن - خرید و فروش ملک ، آپارتمان، ویلا</title>
+	<link rel="apple-touch-icon" sizes="57x57" href="./ico/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="./ico/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="./ico/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="./ico/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="./ico/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="./ico/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="./ico/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="./ico/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="./ico/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="./ico/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="./ico/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="./ico/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./ico/favicon-16x16.png">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="./ico/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+	<div id="map" class="map">
+		<div id="popup"></div>
+	</div>
+	<img src="./img/user.png" class="UserIcon UserLoginShow" alt="عضویت و ورود" title="عضویت و ورود" />
+	<img src="./img/menu.png" class="MenuIcon" alt="منوی سیستم" title="منوی سیستم" />
+	<img src="./img/help.png" class="HelpIcon" alt="راهنمای سیستم" title="راهنمای سیستم" />
+	<img src="./img/add.png" class="AddIcon" alt="اضافه کردن نقطه" title="اضافه کردن نقطه" />
+
+	<div class="Upgrade">
+		<div class="CadrTitle ">
+			<img src="./img/addpoint.png" />
+			ارتقای آگهی
+			<img class="ExitBTN UpitemHide" src="./img/exit.png" />
+		</div>
+		<div class="UpItem">
+			<div>یک ستاره<b> (نمایش آکهی در لایه 16 نقشه - ده روز - 7000 تومان)</b><span class="paybtn btn"
+					t="1">پرداخت</span></div>
+			<div>دوستاره<b> (نمایش آکهی در لایه 15 نقشه - پانزده روز - 10000 تومان)</b><span class="paybtn btn"
+					t="2">پرداخت</span></div>
+			<div>سه ستاره<b> (نمایش آکهی در لایه 14 نقشه - بیست روز - 15000 تومان)</b><span class="paybtn btn"
+					t="3">پرداخت</span></div>
+			<div>چهار ستاره<b> (نمایش آکهی در لایه 13 نقشه - یک ماه - 20000 تومان)</b><span class="paybtn btn"
+					t="4">پرداخت</span></div>
+		</div>
+	</div>
+
+	<div class="HelpItem">
+		<div class="CadrTitle help">
+			<img src="./img/helpico.png" />
+			راهنمای سامانه
+			<img class="ExitBTN HelpItemHide" src="./img/exit.png" />
+		</div>
+		<div class="HelpPanel" style="text-align: center;">
+			<img src="img/help/def.jpg" style="width: 80%;"><br>
+			بزرگترین سامانه املاک کشور<br>
+			<div class="helpul">
+				<li>راهنمای آیکون ها در صفحه
+					<div><img src="img/menu.png"> نمایش منو: هنگامی که موشواره را روی این علامت ببرید یک منو در سمت راست
+						صفحه نمایان می شود. هنگامی که موشواره از روی این منو خارج شود به صورت اتوماتیک منو دوباره ناپدید
+						می گردد.
+						<br><img src="img/user.png" style="width: 40px;"> نمایش کاربری: با کلیک بر روی این منو شما می
+						توانید عضو سامانه شوید و یا به سیستم لاگین کنید. هنگامی هم که شما در سیستم لاگین باشید در صورت
+						کلیک بر روی این منو مشخصات کاربری شما نمایش داده خواهد شد.
+						<br><img src="img/add.png" style="width: 40px;"> اضافه کردن ملک جدید: برای اضافه کردن ملک جدید
+						از این آیکون استفاده کنید که راهنمای آن در منوی "اضافه کردن ملک جدید" کاملا توضیح داده شده است
+						<br><img src="img/help/cnt.jpg" style="width: 40px;"> تعداد ملک در محدوده: یک آیکون در پایین سمت
+						چپ
+						صفحه وجود دارد که با زوم کردن بر روی نقشه عدد آن تغییر می کند. این عدد نمایانگر تعداد ملک در
+						محدوده مایش داده نقشه می باشد
+						<br><img src="img/help/zoomplus.jpg" style="width: 40px;"><img src="img/help/zoomneg.jpg"
+							style="width: 40px;"> بزرگنمایی و کوچک کردن: این دو آیکون در وسط صفحه سمت چپ قرار دارد. با
+						فشردن علامت منفی نقشه یک لایه به عقب می رود و مکان های بیشتری به شما نمایش داده می شود. با فشردن
+						علامت مثبت نقشه زوم تر می شود و دقت و وضوح بیشتری در نقشه وجود دارد
+						<br><img src="img/help/zoom.jpg" style="width: 40px;"> عدد بزرگنمایی: این عدد در وسط صفحه سمت چپ
+						قرار
+						دارد و از عدد 6 که کل نقشه ایران را نمایش می دهد شروع ی شود و به عدد 18 که فقط یک محله را نشان
+						می دهد خاتمه می یابد. ملک های اضافه شده توسط کاربران از لایه 13 تا لایه آخر نمایش داده می شود.
+						هر چقدر جلوتر و در نقشه ریزتر شویو نظاط بیشتری نمایش داده می شود.
+						<br><img src="img/1.png" style="width: 40px;"> نمایش آگهی های فروش بر روی نقشه. با کلیک کردن بر
+						روی آن می توانید مقداری از مشخصات ملک مورد نظر را ببینید
+						<br><img src="img/2.png" style="width: 40px;"> نمایش آگهی های رهن و اجاره بر روی نقشه. با کلیک
+						کردن بر روی آن می توانید مقداری از مشخصات ملک مورد نظر را ببینید
+						<br><img src="img/3.png" style="width: 40px;"> نمایش آگهی های معاوضه بر روی نقشه. با کلیک کردن
+						بر روی آن می توانید مقداری از مشخصات ملک مورد نظر را ببینید
+						<br><img src="img/4.png" style="width: 40px;"> نمایش آگهی های پروژه ها بر روی نقشه. با کلیک کردن
+						بر روی آن می توانید مقداری از مشخصات ملک مورد نظر را ببینید
+					</div>
+				</li>
+				<li>راهنمای عضویت در سیستم
+					<div>برای عضویت و یا ورود به سایت ابتدا بر روی آیکون <img src="img/user.png" style="width: 25px;">
+						کلیک نمایید. پنجره زیر به شما نمایش داده خواهد شد:<br>
+						<img class="center" src="img/help/sign.jpg"><br> در صورتی که می خواهید در سایت عضو شوید بر روی
+						نوار بالا (نوشته عضویت) کلیک کنید تا فرم عضوت به شما نمایش داده شود. در صورتی هم که نام کاربر و
+						رمز عبور دارید همین فرم را پر کرده و بر روی دکمه ورود کلیک نمایید.<br>
+						برای عضویت بعد از کلیک کردن بر روی منوی عضویت فرم زیر به شما نمایش داده خواهد شد:<br>
+						<img class="center" src="img/help/signin.jpg"><br>
+						توجه داشته باشید که فرم بالا باید به صورت صحیح پر شود چون به شماره موبایل وارد شده پیامک فعال
+						سازی ارسال می شود و در صورتی که فعال سازی شماره خود را انجام ندهید نمی توانید آگهی اضافه نمایید.
+						بعد از پر کردن فرم روبرو بر روی دکمه ورود کلیک نمایید. در صورتی که خطایی پیش بیاید به شما پیام
+						داده خواهد شد در غیر این صورت عضویت شما اتمام یافته و به صفحه فعال سازی حساب کاربری وارد می شود.
+						به شماره موبایل شما یک پیامک حاوی یک عدد 5 رقمی ارسال خواهد شد. عدد پیامک شده برای شما را در
+						داخل کادر وارد کنید و بر روی کلید فعال سازی کلیک نمایید. در صورتی که شماره وارد شده صحیح باشد
+						جساب کاربری شما فعال می شود.
+						<div class=""></div>
+					</div>
+				</li>
+				<li>اضافه
+					کردن ملک جدید
+					<div>برای اضافه کردن یک ملک در سامانه ابتدا روی نقشه زوم کنید تا عدد کنار + و - به عدد 16 یا
+						بزرگتر
+						برسد. بعد از آن یک بار بر روی آیکون <img style="width: 25px;" src="img/add.png"> کلید
+						کنید. یک
+						پیام به شکل زیر به شما نمایش می دهد: <br>
+						<img class="center" src="img/help/addico.jpg"><br>
+						بعد از زدن دکمه باشه در پیام روی نقطه دقیق محلی که می خواهید آن را آگهی کنید کلیک نمایید
+						در
+						صورتی که مراحل را درست پیش رفته باشید صفحه روبرو به شما نمایش داده خواهد شد:<br>
+						<img class="center" src="img/help/addpnl.jpg"><br>در این صفحه کل اطلاعات ملک خود را وارد
+						نمایید.
+						لطفا
+						در وارد کردن اطلاعات دقت نمایید. بعد از اتمام بر روی دکمه اضافه شود کلیک کنید. بعد از
+						اتمام این
+						مرحله در صورتی که مشکلی در صفحه نباشد به صفحه اضافه کردن عکس منتقل می شوید که به صورت
+						شکل زیر
+						است:
+						<br><img class="center" src="img/help/addphoto.jpg"><br>در این مرحله حداکثر تعداد 5 عکس
+						از ملک
+						خود با
+						پسوند jpg و یا png را با زدن دکمه انتخاب عکس انتخاب نمایید. در آخر با زدن دکمه ذخیره
+						اطلاعات
+						دیدن پیام موفقیت اطلاعات شما ذخیره شده و در معرض دید عموم قرار خواهد گرفت. اگر تصویری
+						برای آگهی
+						خود ندارید فقط کافیست بر روی گزینه ذخیره اطلاعات کلیک نمایید و کار خود را به اتمام
+						برسانید.
+					</div>
+				</li>
+			</div>
+			تمامی مسئولیت خرید و فروش و معامله آگهی های این سایت به عهده خود شما می باشد. قبل از انجام معامله جوانب آن را بسنجید
+		</div>
+	</div>
+	<div class="CityItem">
+		<div class="CadrTitle city">
+			<img src="./img/signup.png" />
+			انتخاب شهر شما
+			<img class="ExitBTN CityItemHide" src="./img/exit.png" />
+		</div>
+		<div class="" style="text-align: center;">
+			استان: <select id="selAddOstanSel"></select><img class="none" src="./img/loading.gif" id="selAddOstanSell"
+				class="OstanLoad" />
+			<br>شهر: <select id="selshahr" class="selectcity"></select><br><br>
+			<input class="btn" id="citySelectBTN" value="انتخاب شهر">
+			<br>
+		</div>
+	</div>
+	<div class="UserLogin">
+		<div class="CadrTitle">
+			<img src="./img/userinfo.png" />مشخصات کاربری
+			<img class="ExitBTN UserItemHide" src="./img/exit.png" />
+		</div>
+		<div class="UserLoginPanel" style="text-align: center;">
+			<div class="userlogininfo">
+				<div class="userlogininfopic">
+					<img class="userinfoimage" onerror="this.src='/img/uphoto.png'" src="./api/avatar">
+					<div class="btn btn-mdb-color btn-rounded float-left">
+						<label for="ufupload" id="uploadavatarphoto" class="userinfofileup btn">انتخاب عکس</label><img
+							id="uploadavatarphotol" class="none" src="img/home.gif">
+						<input id="ufupload" style="width: 0px;height: 0px;" type="file" accept=".png, .jpg, .jpeg">
+					</div>
+				</div>
+				<div class="userlogininfoinfo">
+					نام:<b id="userloginName"></b><br>
+					همراه:<b id="userloginMobile"></b><br>
+					ایمیل:<b id="userloginEmail"></b><br>
+					<input class="btn" id="verifymobno" value="فعال سازی شماره موبایل">
+					<input class="btn" id="logoutBTN" value="خروج">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="LoginItem">
+		<div class="CadrTitle SignUpCadrShow">
+			<img src="./img/signup.png" />
+			عضویت
+			<img class="ExitBTN LoginItemHide" src="./img/exit.png" />
+		</div>
+		<div class="SignUpPanel" style="text-align: center;">
+			<div id="Signupform" class="form-group">
+				<input class="form-control" type="text" placeholder="نام و نام خانوادگی" name="name" />
+				<input class="form-control" type="text" placeholder="تلفن همراه (0912110...)" name="mobile"
+					class="ltr" />
+				<input class="form-control" type="text" placeholder="پست الکترونیک" name="email" class="ltr" />
+				<input class="form-control" type="text" placeholder="رمز عبور" name="password" />
+				<div class="form-group  ">
+					<img class="captcha" id="imgcpatcha" src="/captcha" /><input class="form-control"
+						style="width:140px;display:inline;" type="text" placeholder="کد امنیتی" name="captcha" />
+				</div>
+				<span id="signupbtn" class="btn">عضویت</span><img id="signupbtnl" class="none" src="img/home.gif">
+			</div>
+			<div id="Verifyform" class="form-group">
+				برای فعال سازی شماره موبایل خود دو راه وجود دارد. راه اول ارسال یک پیامک به شماره 30005785 که متن پیامک
+				باید عدد <b id="verifysmscode"></b> را وارد کرده و ارسال نمایید. با این طریق اتوماتیک شماره موبایل شما
+				فعال می شود.
+				<br> راه دوم رفتن به ربات تلگرامی <a href="https://t.me/nbxverifybot" target="blank">nbxverifybot</a> و
+				دریافت کد فعال سازی می باشد. بعد از دریافت باید کد را در خانه زیر وارد نمایید تا شماره شما فعال گردد.
+				<input class="form-control" type="text" placeholder="کد دریافتی از ربات تلگرام" class="ltr"
+					name="verifyCode" />
+				<span id="verifyCodeBTN" class="btn">تایید کد ربات</span><img id="verifyCodeBTNl" class="none"
+					src="img/home.gif">
+			</div>
+		</div>
+		<div class="CadrTitle LoginCadrShow">
+			<img src="./img/login.png" />
+			ورود کاربران
+			<img class="ExitBTN LoginItemHide" src="./img/exit.png" />
+		</div>
+		<div class="LoginPanel" style="text-align: center;">
+			<div id="loginform" style="width: 350px;display: inline-block" class="form-group">
+
+				<input class="form-control" type="text" placeholder="تلفن همراه (0912110...)" name="mobile"
+					class="ltr" />
+				<input class="form-control" type="text" placeholder="رمز عبور" name="password" />
+				<div class="form-group  ">
+					<img class="captcha" id="imgcpatcha" src="/captcha" /><input class="form-control"
+						style="width:140px;display: inline-block;" type="text" placeholder="کد امنیتی" name="captcha" />
+				</div>
+				<span id="loginBTN" class="btn">ورود</span><img id="loginBTNl" class="none" src="img/home.gif">
+			</div>
+		</div>
+	</div>
+	<div class="AddPoint">
+		<div class="CadrTitle SignUpCadrShow">
+			<img src="./img/addpoint.png" />
+			اضافه کردن ملک
+			<img class="ExitBTN AddPointHide" src="./img/exit.png" />
+		</div>
+		<div class="AddPointItem">
+			<select id="typesale">
+				<option value="0">نوع معامله / قرارداد</option>
+				<option value="1">فروش</option>
+				<option value="2">رهن و اجاره</option>
+				<option value="3">معاوضه</option>
+				<option value="4">پروژه ها</option>
+				<option value="5">مشاور املاک</option>
+			</select>
+			<input type="text" id="name" placeholder="عنوان آگهی" maxlength="64" />
+			<select id="type">
+				<option value="0">نوع ملک</option>
+				<option value="1">آپارتمان</option>
+				<option value="2">ویلایی</option>
+				<option value="3">زمین</option>
+				<option value="4">تجاری</option>
+				<option value="5">اداری</option>
+				<option value="6">مغازه</option>
+				<option value="7">باغ</option>
+				<option value="8">مزرعه</option>
+			</select>
+			<select id="melktakh">
+				<option value="0">وضعیت ملک</option>
+				<option value="1">سکونت</option>
+				<option value="1">تخلیه</option>
+				<option value="2">نوساز</option>
+			</select>
+			<select id="floorNo">
+				<option value="0">طبقه ملک</option>
+				<option value="1">زیر همکف</option>
+				<option value="2">همکف</option>
+				<option value="3">اول</option>
+				<option value="4">دوم</option>
+				<option value="5">سوم</option>
+				<option value="6">چهارم</option>
+				<option value="7">پنجم</option>
+				<option value="8">ششم</option>
+				<option value="9">هفتم</option>
+				<option value="10">هشتم</option>
+				<option value="11">نهم</option>
+				<option value="12">دهم و بالاتر</option>
+			</select>
+			<span id="addpointMoshaver">
+				<input type="text" id="addpointmobile" placeholder="شماره همراه" maxlength="35">
+				<input type="text" id="addpointphone" placeholder="شماره فکس" maxlength="35">
+				<input type="text" id="addpointfax" placeholder="شماره نمابر" maxlength="35">
+			</span>
+			<input type="text" id="meter" dir="ltr" placeholder="متراژ" maxlength="64" />
+			<input type="text" id="allMeter" dir="ltr" placeholder="متراژ زمین" maxlength="64" />
+			<input type="text" id="old" dir="ltr" placeholder="سن بنا" maxlength="32" />
+			<input type="text" id="monmeter" dir="ltr" placeholder="قیمت هر متر به تومان" maxlength="32" />
+			<input type="text" id="monkol" dir="ltr" placeholder="قیمت کل به تومان" maxlength="32" />
+			<fieldset>
+				<select id="AddOstanSel"></select><img src="./img/loading.gif" class="OstanLoad" id="AddOstanSell" />
+				<select id="shahr"></select>
+				<input type="text" id="address" placeholder="آدرس پستی" maxlength="250" />
+			</fieldset>
+			<select id="Nofloor">
+				<option value="0">طبقات ساختمان</option>
+				<option value="1">یک طبقه</option>
+				<option value="2">دو طبقه</option>
+				<option value="3">سه طبقه</option>
+				<option value="4">چهار طبقه</option>
+				<option value="5">پنج طبقه</option>
+				<option value="6">شش طبقه</option>
+				<option value="7">هفت طبقه</option>
+				<option value="8">هشت طبقه</option>
+				<option value="9">نه طبقه</option>
+				<option value="10">ده طبقه و بالاتر</option>
+			</select>
+			<select id="floorcnt">
+				<option value="0">واحد در هر طبقه</option>
+				<option value="1">تک واحده</option>
+				<option value="2">دو واحده</option>
+				<option value="3">سه واحده</option>
+				<option value="4">چهار واحده</option>
+				<option value="5">پنج واحده</option>
+				<option value="6">شش واحده</option>
+				<option value="7">هفت واحده</option>
+				<option value="8">هشت واحده</option>
+				<option value="9">نه واحده</option>
+				<option value="10">ده واحده و بالاتر</option>
+			</select>
+			<select id="bedNo">
+				<option value="0">اتاق خواب</option>
+				<option value="0">بدون خواب</option>
+				<option value="1">تک خوابه</option>
+				<option value="2">دو خوابه</option>
+				<option value="3">سه خوابه</option>
+				<option value="4">چهار خوابه</option>
+				<option value="5">پنج خوابه</option>
+				<option value="6">شش خوابه</option>
+				<option value="7">هفت خوابه</option>
+				<option value="8">هشت خوابه</option>
+				<option value="9">نه خوابه</option>
+				<option value="10">ده خوابه و بالاتر</option>
+			</select>
+			<select id="sel1">
+				<option value="0">نوع کابینت</option>
+				<option value="1">ام دی اف</option>
+				<option value="2">فلزی</option>
+				<option value="3">بدون کابینت</option>
+				<option value="4">چوبی مدرن</option>
+			</select>
+			<select id="sel2">
+				<option value="0">نوع کفپوش</option>
+				<option value="1">سرامیک</option>
+				<option value="2">سنگ</option>
+				<option value="3">موکت</option>
+				<option value="4">موزاییک</option>
+			</select>
+			<select id="sel3">
+				<option value="0">سرویس بهداشتی</option>
+				<option value="1">معمولی</option>
+				<option value="1">فرنگی</option>
+				<option value="2">معمولی و فرنگی</option>
+			</select>
+			<select id="sel4">
+				<option value="0"> نمای ساختمان</option>
+				<option value="1">سنگ</option>
+				<option value="2">آجر سه سانتی</option>
+				<option value="2">سیمان سفید</option>
+				<option value="4">رومی</option>
+			</select>
+			<fieldset id="addpointcb">
+				<input id="chb1" name="chb1" type="checkbox"><label for="chb1">پارکینگ</label>
+				<input id="chb2" name="chb2" type="checkbox"><label for="chb2">انباری</label>
+				<input id="chb3" name="chb3" type="checkbox"><label for="chb3">بالکن</label>
+				<input id="chb4" name="chb4" type="checkbox"><label for="chb4">گاز</label>
+				<input id="chb5" name="chb5" type="checkbox"><label for="chb5">شوفاژ</label>
+				<input id="chb6" name="chb6" type="checkbox"><label for="chb6">فن کوئل</label>
+				<input id="chb7" name="chb7" type="checkbox"><label for="chb7">کولر گازی</label>
+				<input id="chb8" name="chb8" type="checkbox"><label for="chb8">کولر آبی</label>
+				<input id="chb9" name="chb9" type="checkbox"><label for="chb9">پکیج</label>
+				<input id="chb10" name="chb10" type="checkbox"><label for="chb10">چیلر</label>
+				<input id="chb11" name="chb11" type="checkbox"><label for="chb11">سونا</label>
+				<input id="chb12" name="chb12" type="checkbox"><label for="chb12">استخر</label>
+				<input id="chb13" name="chb13" type="checkbox"><label for="chb13">جکوزی</label>
+				<input id="chb14" name="chb14" type="checkbox"><label for="chb14">حیاط</label>
+				<input id="chb15" name="chb15" type="checkbox"><label for="chb15">حیات خلوت</label>
+				<input id="chb16" name="chb16" type="checkbox"><label for="chb16">زیرزمین</label>
+				<input id="chb17" name="chb17" type="checkbox"><label for="chb17">آسانسور</label>
+				<input id="chb18" name="chb18" type="checkbox"><label for="chb18">پاسیو</label>
+				<input id="chb19" name="chb19" type="checkbox"><label for="chb19">مستخدم</label>
+				<input id="chb20" name="chb20" type="checkbox"><label for="chb20">شمالی</label>
+				<input id="chb21" name="chb21" type="checkbox"><label for="chb21">جنوبی</label>
+				<input id="chb22" name="chb22" type="checkbox"><label for="chb22">شرقی</label>
+				<input id="chb23" name="chb23" type="checkbox"><label for="chb23">غربی</label>
+			</fieldset>
+			<input type="text" id="desc" placeholder="توضیحات" maxlength="1000" />
+			<input type="text" id="Lat" disabled="disabled" class="hide" />
+			<input type="text" id="Lon" disabled="disabled" class="hide" />
+
+
+			<span id="AddPointbtn" class="btn">اضافه شود</span><img id="AddPointbtnl" class="none" src="img/home.gif">
+		</div>
+		<div class="AddPointItemFile">
+			<div class="btn ">
+				<label for="itemfiles" class="userinfofileup btn ">انتخاب عکس</label>
+				<input type="file" multiple id="itemfiles" style="width: 0px;height: 0px;" value="انتخاب فایل"
+					accept=".png, .jpg, .jpeg">
+			</div>
+			<div id="itemphoto">حداکثر پنج تصویر با پسوند jpg و یا png انتخاب نمایید</div>
+			<span id="AddPointphotobtn" class="btn">ذخیره اطلاعات</span><img id="AddPointphotobtnl" class="none"
+				src="img/home.gif">
+		</div>
+	</div>
+	<div class="MenuItem">
+		<img src="./img/logo.png" class="Logo" />
+		<div class="Category">
+			<!--	<div class="CatTitle CadrTitle">
+				<img src="./img/cat.png" />
+				شاخه بندی موضوعی
+			</div>
+			<div class="CatItem">
+				<ul class="CatMenu">
+					CategoryText
+				</ul>
+			</div>-->
+			<div class="OstTitle CadrTitle">
+				<img src="./img/ostan.png" />
+				لینک سریع شهرها و استان ها
+			</div>
+			<div class="OstItem">
+
+			</div>
+			<div class="SearchTitle CadrTitle">
+				<img src="./img/search.png" />
+				جستجو در نقشه
+			</div>
+			<div class="SearchItem">
+				<table border="0">
+					<tr>
+						<td>
+							<input type="text" class="SearchInput " />
+						</td>
+						<td>
+							<img src="./img/searchbtn.png" class="SearchBTN" />
+						</td>
+						<td>
+							<img src="./img/loading.gif" class="SearchLoad" />
+						</td>
+					</tr>
+				</table>
+				<div class="SearchResult"></div>
+			</div>
+			<div class="ViewPoint">
+				<div class="CadrTitle ViewPointCadrShow">
+					<img src="./img/addpoint.png" />
+					اگهی های شما
+				</div>
+				<div class="ViewPointItem">
+					<table id="viewpointtable">
+					</table>
+				</div>
+			</div>
+		</div>
+		<div id="btnmenuitem"><img id = 'jxlzfukzfukzesgtjxlzsizp' style = 'cursor:pointer' onclick = 'window.open("https://logo.samandehi.ir/Verify.aspx?id=166019&p=rfthgvkagvkaobpdrfthpfvl", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30")' alt = 'logo-samandehi' src = 'https://logo.samandehi.ir/logo.aspx?id=166019&p=nbpdwlbqwlbqlymanbpdbsiy' /></div>
+	</div>
+	<div id="map" class="map">
+		<div id="popup"></div>
+	</div>
+	<div id="DetailView">
+		<div class="CadrTitle DVCadrShow">
+			<img src="./img/point.png" />
+			<span id="DVTitle"></span>
+			<img src="./img/loading.gif" class="DVLoad" /><img class="ExitBTN DVHide" src="./img/exit.png" />
+		</div>
+		<div id="DVDetails">
+			<div id="DVDetailItem"></div>
+			<div id="DVDetailQR"></div>
+		</div>
+	</div>
+	<div class="Report">
+		<div class="CadrTitle QRCadrShow">
+			<img src="./img/edit.png" />
+			رمزینه نقطه
+			<img class="ExitBTN ReportHide" src="./img/exit.png" />
+		</div>
+		<div class="QRItem">
+		</div>
+		<div class="CadrTitle EditShow">
+			<img src="./img/edit.png" />
+			ویرایش نقطه
+			<img class="ExitBTN ReportHide" src="./img/exit.png" />
+		</div>
+		<div class="EditItem">
+			<input id="ReportEdit" type="button" value="ویرایش نقطه" />
+		</div>
+		<div class="CadrTitle ReportShow">
+			<img src="./img/report.png" />
+			گزارش نقطه
+			<img class="ExitBTN ReportHide" src="./img/exit.png" />
+		</div>
+		<div class="ReportItem">
+			<select class="ReportSelect">
+				<option value="0">انتخاب</option>
+				<option value="1">خطای محل نقطه</option>
+				<option value="2">اطلاعات ناقض قوانین</option>
+				<option value="3">اطلاعات اشتباه</option>
+			</select>
+			<textarea class="ReportText" placeholder="توضیحات"></textarea>
+			<input type="text" class="ReportID hide" /><input type="text" class="ReportName hide" />
+			<input id="ReportSave" type="button" value="ارسال" /><img src="./img/loading.gif" class="ReportLoad" />
+		</div>
+
+	</div>
+	<div class="ZoomLevel"></div>
+	<div class="CountLevel"></div>
+	<script type="text/javascript">
+		var UserInfo = "";
+		function getParameterByName(name, url) {
+			if (!url) url = window.location.href;
+			name = name.replace(/[\[\]]/g, "\\$&");
+			var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+				results = regex.exec(url);
+			if (!results) return null;
+			if (!results[2]) return '';
+			return decodeURIComponent(results[2].replace(/\+/g, " "));
+		}
+		var AddClick = 0;
+		var UserID = "<%=token%>";
+		var pay = "<%=pay%>";
+	</script>
+	<script src="./js/var.js" type="text/javascript"></script>
+	<script src="./js/site.min.js" type="text/javascript"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-4H0SZEB1F8"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-4H0SZEB1F8');
+	</script>
+</body>
+</html>
